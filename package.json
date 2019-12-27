@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "npx git-cz"
+    "commit": "git-cz",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,11 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-typescript": "^0.14.0",
     "typescript": "^3.7.4",
-    "typescript-eslint-parser": "^22.0.0"
+    "typescript-eslint-parser": "^22.0.0",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
