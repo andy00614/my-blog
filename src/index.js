@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import './styles.scss';
-import Icon from './assets/genu.jpg';
+import Icon from '@/assets/genu.jpg';
 
 function component() {
   const element = document.createElement('div');
