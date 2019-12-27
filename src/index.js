@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import './styles.scss';
+import Icon from './assets/genu.jpg';
 
 function component() {
   const element = document.createElement('div');
@@ -9,6 +10,9 @@ function component() {
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   element.classList.add('scssColor');
 
+  const newIcon = new Image();
+  newIcon.src = Icon;
+  element.appendChild(newIcon);
   return element;
 }
 
