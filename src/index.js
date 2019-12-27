@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import './style.css';
 import './styles.scss';
+import ReactDOM from 'react-dom';
+import React from 'react';
 import Icon from '@/assets/genu.jpg';
+import App from './App';
 
 function component() {
   const element = document.createElement('div');
@@ -13,7 +16,10 @@ function component() {
   const newIcon = new Image();
   newIcon.src = Icon;
   element.appendChild(newIcon);
+
   return element;
 }
 
 document.body.appendChild(component());
+
+ReactDOM.render(<App />, document.getElementById('root'));
