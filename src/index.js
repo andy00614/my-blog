@@ -4,7 +4,8 @@ import './styles.scss';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import Icon from '@/assets/genu.jpg';
-import App from './App';
+// import App from './App';
+import Sample from './Sample.tsx';
 
 function component() {
   const element = document.createElement('div');
@@ -22,4 +23,4 @@ function component() {
 
 document.body.appendChild(component());
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Sample compiler="TypeScript" framework="React" />, document.getElementById('root'));
