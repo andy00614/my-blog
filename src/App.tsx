@@ -7,11 +7,7 @@ export interface HelloProps {
 }
 
 const Hello = (props: HelloProps) => {
-	console.log(11)
-	return (
-		<h1>
-			Hello from
-		</h1>
-	);
+	console.log('2');
+	return <h1>Hello from211</h1>;
 };
 export default Hello;
