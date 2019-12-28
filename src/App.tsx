@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface HelloProps {
 	// compiler: string;
@@ -7,7 +7,7 @@ export interface HelloProps {
 }
 
 const Hello = (props: HelloProps) => {
-	// console.log("3")
+	console.log("3");
 	return <h1>Hello from211</h1>;
 };
 export default Hello;

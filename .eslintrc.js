@@ -28,7 +28,7 @@ module.exports = {
 		// "react/jsx-uses-react": 1, // import * as React -> 'React' is defined but never used
 		// "semi": ["error", "always"], // semicolon
 		"quotes": ["error", "double"],
-		"no-console": 2,
+		"no-console": 0,
 	},
 	settings: {
 		'import/resolver': {
