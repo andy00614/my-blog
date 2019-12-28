@@ -3,7 +3,7 @@ module.exports = {
 		browser: true,
 		es6: true
 	},
-	extends: ['plugin:react/recommended', 'airbnb'],
+	extends: ['alloy', 'alloy/react', 'alloy/typescript'],
 	globals: {
 		Atomics: 'readonly',
 		SharedArrayBuffer: 'readonly'
@@ -18,15 +18,12 @@ module.exports = {
 	},
 	plugins: ['react', '@typescript-eslint'],
 	rules: {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }],
-
-  },
+		'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'tsx'] }],
+	},
 	settings: {
 		'import/resolver': {
 			alias: {
-				map: [
-					['@', './src/'],
-				]
+				map: [['@', './src/']]
 			}
 		}
 	}
