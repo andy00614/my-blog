@@ -1,76 +1,78 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Webpack = require('webpack');
+/* eslint-disable @typescript-eslint/no-require-imports */
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Webpack = require("webpack");
 
 module.exports = {
-	mode: 'development',
+	mode: "development",
 	entry: {
-    main: path.resolve(__dirname,'../src/index.tsx')
-  },
-	output: {
-		filename: '[name].[hash:8].js',
-		path: path.resolve(__dirname, '../dist')
+		main: path.resolve(__dirname, "../src/index.tsx")
 	},
-	devtool: 'eval-source-map',
+	output: {
+		filename: "[name].[hash:8].js",
+		path: path.resolve(__dirname, "../dist")
+	},
+	devtool: "eval-source-map",
 	resolve: {
 		alias: {
-			'@': path.resolve(__dirname, '../src')
+			"@": path.resolve(__dirname, "../src")
 		},
-		extensions: ['.ts', '.tsx', '.js']
+		extensions: [".ts", ".tsx", ".js"]
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, '../public/index.html')
+			template: path.resolve(__dirname, "../public/index.html")
 		}),
 		new Webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		port: 3000,
 		hot: true,
-		contentBase: '../dist'
+		contentBase: "../dist"
 	},
 	module: {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader']
+				use: ["style-loader", "css-loader"]
 			},
 			{
 				test: /\.s[ac]ss$/,
 				use: [
 					// Creates `style` nodes from JS strings
-					'style-loader',
+					"style-loader",
 					// Translates CSS into CommonJS
-					'css-loader',
+					"css-loader",
 					// Compiles Sass to CSS
-					'sass-loader'
+					"sass-loader"
 				]
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
-				use: ['file-loader']
+				use: ["file-loader"]
 			},
 			{
 				test: /\.(js|jsx|tsx)$/,
-				use: 'babel-loader',
+				use: "babel-loader",
 				exclude: /node_modules/
 			},
 			{
-				test: /\.ts(x?)$/,
+				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
+				include: path.resolve(__dirname, '../src'),
 				use: [
 					{
-						loader: 'ts-loader'
+						loader: "ts-loader"
 					}
 				]
 			},
 			// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
 			{
-				enforce: 'pre',
+				enforce: "pre",
 				test: /\.js$/,
-				loader: 'source-map-loader'
+				loader: "source-map-loader"
 			}
 		]
 		// When importing a module whose path matches one of the following, just

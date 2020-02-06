@@ -27,7 +27,6 @@ module.exports = {
 		// 'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'tsx'] }],
 		// "react/jsx-uses-react": 1, // import * as React -> 'React' is defined but never used
 		// "semi": ["error", "always"], // semicolon
-		"quotes": ["error", "double"],
 		"no-console": 2,
 	},
 	settings: {

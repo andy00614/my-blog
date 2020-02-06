@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export interface HelloProps {
 	// compiler: string;
@@ -11,11 +11,11 @@ interface AnimalDes {
 	title: string;
 }
 
-type AnimalType = "cat" | "dog" | "frog";
+type AnimalType = 'cat' | 'dog' | 'frog';
 const AnimalMap: Record<AnimalType, AnimalDes> = {
-	cat: { name: "猫", title: "cat" },
-	dog: { name: "狗", title: "dog" },
-	frog: { name: "青蛙", title: "frog" }
+	cat: { name: '猫', title: 'cat' },
+	dog: { name: '狗', title: 'dog' },
+	frog: { name: '青蛙', title: 'frog' }
 };
 
 const Hello = (props: HelloProps) => {
@@ -26,6 +26,6 @@ const Hello = (props: HelloProps) => {
 	if (foo === 2) {
 		foo = 2;
 	}
-	return <h1 onClick={handleClick}>Hello from211</h1>;
+	return <h1 onClick={handleClick}>Hello from2133321</h1>;
 };
 export default Hello;

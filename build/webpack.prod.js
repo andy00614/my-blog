@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
 const webpackConfig = require('./webpack.config.js');
 const WebpackMerge = require('webpack-merge');
@@ -18,7 +19,7 @@ module.exports = WebpackMerge(webpackConfig, {
 	optimization: {
 		minimizer: [
 			new UglifyJsPlugin({
-				//压缩js
+				// 压缩js
 				cache: true,
 				parallel: true,
 				sourceMap: true
