@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import Button from '@/components/Button';
 
 export interface HelloProps {
 	// compiler: string;
@@ -26,6 +27,11 @@ const Hello = (props: HelloProps) => {
 	if (foo === 2) {
 		foo = 2;
 	}
-	return <h1 onClick={handleClick}>Hello from2133321</h1>;
+	return (
+		<h1 onClick={handleClick}>
+			<Button />
+			Hello from2133321
+		</h1>
+	);
 };
 export default Hello;
