@@ -1,3 +1,20 @@
 .container {
-  color: green;
+  display: flex;
+  justify-content: center;
+  .header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+    padding-bottom: 6px;
+  }
+  .inner {
+    background: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.125);
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 640px;
+    .desc {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+  }
 }
