@@ -16,26 +16,26 @@ module.exports = WebpackMerge(webpackConfig, {
 			}
 		])
 	],
-	optimization: {
-		minimizer: [
-			new UglifyJsPlugin({
-				// 压缩js
-				cache: true,
-				parallel: true,
-				sourceMap: true
-			}),
-			new OptimizeCssAssetsPlugin({})
-		],
-		splitChunks: {
-			chunks: 'all',
-			cacheGroups: {
-				libs: {
-					name: 'chunk-libs',
-					test: /[\\/]node_modules[\\/]/,
-					priority: 10,
-					chunks: 'initial' // 只打包初始时依赖的第三方
-				}
-			}
-		}
-	}
+	// optimization: {
+	// 	minimizer: [
+	// 		new UglifyJsPlugin({
+	// 			// 压缩js
+	// 			cache: true,
+	// 			parallel: true,
+	// 			sourceMap: true
+	// 		}),
+	// 		new OptimizeCssAssetsPlugin({})
+	// 	],
+	// 	splitChunks: {
+	// 		chunks: 'all',
+	// 		cacheGroups: {
+	// 			libs: {
+	// 				name: 'chunk-libs',
+	// 				test: /[\\/]node_modules[\\/]/,
+	// 				priority: 10,
+	// 				chunks: 'initial' // 只打包初始时依赖的第三方
+	// 			}
+	// 		}
+	// 	}
+	// }
 });

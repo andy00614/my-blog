@@ -7,11 +7,13 @@ const Webpack = require('webpack');
 module.exports = {
 	mode: 'development',
 	entry: {
-		main: path.resolve(__dirname, '../src/index.tsx')
+		main: path.resolve(__dirname, '../demo/index.tsx')
 	},
 	output: {
 		filename: '[name].[hash:8].js',
-		path: path.resolve(__dirname, '../dist')
+		path: path.resolve(__dirname, '../dist'),
+		libraryTarget: 'umd',
+		libraryExport: 'default',
 	},
 	devtool: 'eval-source-map',
 	resolve: {
