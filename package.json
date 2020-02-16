@@ -1,14 +1,16 @@
 {
-  "name": "blog",
+  "name": "andypublishfirst",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "git-cz",
-    "build": "webpack",
-    "dev": "webpack-dev-server --config build/webpack.config.js",
-    "precommit": "lint-staged"
+    "build": "webpack --config ./build/webpack.prod.js",
+    "pub": "npm run build && npm publish",
+    "dev": "webpack-dev-server --config build/webpack.dev.js",
+    "precommit": "lint-staged",
+    "ssr": "webpack --config ./build/webpack.server.js"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -70,6 +72,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
+    "express": "^4.17.1",
     "git-cz": "^3.3.0",
     "lodash": "^4.17.15",
     "react": "^16.12.0",
