@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = WebpackMerge(webpackConfig, {
 	mode: 'development',
 	entry: {
-		main: path.resolve(__dirname, '../demo/index.tsx')
+		main: path.resolve(__dirname, '../src/client/index.tsx')
 	},
 	output: {
 		filename: '[name].[hash:8].js',
@@ -18,7 +18,7 @@ module.exports = WebpackMerge(webpackConfig, {
 		libraryExport: 'default',
 	},
 	devServer: {
-		port: 3000,
+		port: 8090,
 		hot: true,
 		contentBase: '../dist'
 	},

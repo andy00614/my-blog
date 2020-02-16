@@ -4,9 +4,10 @@ const WebpackMerge = require('webpack-merge');
 const path = require('path')
 
 module.exports = WebpackMerge(webpackConfig, {
-  mode: 'development',
+	mode: 'development',
+	target: "node",
 	entry: {
-		main: path.resolve(__dirname, '../src/server/index.js')
+		main: path.resolve(__dirname, '../src/server/index.tsx')
 	},
 	output: {
 		filename: 'server.js',
