@@ -1,19 +1,18 @@
 import express from 'express';
 import { renderToString } from 'react-dom/server';
-import Demo from '@/components/demo';
 import React from 'react';
-import { render } from './render';
-import Layout from './Layout';
+import Layout from '@/Layout';
+import { routers } from '../routes';
+import { matchRoutes } from 'react-router-config';
 
 const app = express();
 
 app.get('*', (req, res) => {
-	const { targetComponent: TargetComponent, loadData } = render(req, res);
-	// @ts-ignore
+	const matchedRouter = matchRoutes(routers, req.path);
+	const loadData = matchedRouter[0].route.loadData;
 	loadData().then((response) => {
 		const data = response.data.data;
-		// @ts-ignore
-		const content = renderToString(<Layout data={data} req={req} />);
+		const content = renderToString(<Layout propsData={data} req={req} type="server" />);
 		res.send(content);
 	});
 });
