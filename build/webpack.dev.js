@@ -3,6 +3,8 @@ const Webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const WebpackMerge = require('webpack-merge');
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = WebpackMerge(webpackConfig, {
 	mode: 'development',
@@ -20,5 +22,11 @@ module.exports = WebpackMerge(webpackConfig, {
 		hot: true,
 		contentBase: '../dist'
 	},
-	plugins: [new Webpack.HotModuleReplacementPlugin()]
+	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, '../public/index.html')
+		}),
+		new Webpack.HotModuleReplacementPlugin()
+	],
 });
