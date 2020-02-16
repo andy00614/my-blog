@@ -9,7 +9,6 @@
     "build": "webpack --config ./build/webpack.prod.js",
     "pub": "npm run build && npm publish",
     "dev": "webpack-dev-server --config build/webpack.dev.js",
-    "precommit": "lint-staged",
     "ssr": "webpack --config ./build/webpack.server.js"
   },
   "lint-staged": {

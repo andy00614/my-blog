@@ -3,7 +3,7 @@ import { StaticRouter, BrowserRouter, Route, Switch, Link } from 'react-router-d
 import { routers } from './routes';
 
 interface IProps {
-	propsData: any;
+	propsData?: any;
 	type: 'server' | 'client';
 	[props: string]: any;
 }
