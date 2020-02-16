@@ -16,11 +16,13 @@ module.exports = WebpackMerge(webpackConfig, {
 		path: path.resolve(__dirname, '../dist'),
 		libraryTarget: 'umd',
 		libraryExport: 'default',
+		// publicPath: '/'
 	},
 	devServer: {
 		port: 8090,
 		hot: true,
-		contentBase: '../dist'
+		contentBase: '../dist',
+		historyApiFallback: true
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
