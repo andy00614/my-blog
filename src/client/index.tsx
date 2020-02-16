@@ -2,4 +2,4 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import Layout from '@/Layout';
 
-ReactDOM.render(<Layout type='server' />, document.getElementById('root'));
+ReactDOM.render(<Layout type='client' />, document.getElementById('root'));

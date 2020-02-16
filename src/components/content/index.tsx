@@ -9,7 +9,7 @@ function Content(props) {
 				setList(res.data.data)
 			})
 		}
-	})
+	},[])
 	
 	return (
 		<div>
