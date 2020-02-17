@@ -12,15 +12,17 @@ module.exports = WebpackMerge(webpackConfig, {
 		main: path.resolve(__dirname, '../src/client/index.tsx')
 	},
 	output: {
-		filename: '[name].[hash:8].js',
-		path: path.resolve(__dirname, '../dist'),
+		filename: 'index.js',
+		path: path.resolve(__dirname, '../public'),
 		libraryTarget: 'umd',
 		libraryExport: 'default',
+		// publicPath: '/'
 	},
 	devServer: {
 		port: 8090,
 		hot: true,
-		contentBase: '../dist'
+		contentBase: '../dist',
+		historyApiFallback: true
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
