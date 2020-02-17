@@ -14,11 +14,14 @@ const Layout: React.FC<IProps> = (props) => {
 			<Link to="/content">content</Link>
 			<Link to="/">Home</Link>
 			<Switch>
-				{routers.map((item) => (
-					<Route path={item.path} key={item.key} exact={item.exact}>
-						<item.component data={props.propsData} />
-					</Route>
-				))}
+				{routers.map((item) => {
+					console.log('hahaha',item.path)
+					return (
+						<Route path={item.path} key={item.key} exact={item.exact}>
+							<item.component data={props.propsData} />
+						</Route>
+					);
+				})}
 			</Switch>
 		</>
 	);

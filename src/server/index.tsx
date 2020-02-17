@@ -11,18 +11,18 @@ app.use(express.static('public'))
 
 
 app.get('*', (req, res) => {
-	const matchedRouter = matchRoutes(routers, req.path);
-	const loadData = matchedRouter[0].route.loadData;
+  const matchedRouter = matchRoutes(routers, req.path);
+  const loadData = matchedRouter[0].route.loadData;
 	loadData().then((response) => {
 		const data = response.data.data;
-		const content = renderToString(<Layout propsData={data} req={req} type="server" />);
+    const content = renderToString(<Layout propsData={data} req={req} type="server" />);
 		res.send(`<html>
     <head>
         <title>ssr</title>
         <body>
           <h2>hello ssr</h2>
           <div id="root">${content}</div>
-          <script src="/index.js"></script>
+          <script src="/bundle.js"></script>
         </body>
       </head>
     </html>`);

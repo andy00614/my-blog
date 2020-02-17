@@ -2,6 +2,8 @@
 const webpackConfig = require('./webpack.config');
 const WebpackMerge = require('webpack-merge');
 const path = require('path')
+const nodeExternals = require("webpack-node-externals");
+
 
 module.exports = WebpackMerge(webpackConfig, {
 	mode: 'development',
@@ -13,4 +15,5 @@ module.exports = WebpackMerge(webpackConfig, {
 		filename: 'server.js',
 		path: path.resolve(__dirname, '../dist'),
 	},
+	externals:[nodeExternals()]
 })
