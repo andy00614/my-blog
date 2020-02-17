@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticRouter, BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import { routers } from './routes';
+import StyleContext from 'isomorphic-style-loader/StyleContext';
 
 interface IProps {
 	propsData?: any;
@@ -9,13 +10,13 @@ interface IProps {
 }
 
 const Layout: React.FC<IProps> = (props) => {
+	console.log(props.insertCss)
 	const innerRoute = () => (
 		<>
 			<Link to="/content">content</Link>
 			<Link to="/">Home</Link>
 			<Switch>
 				{routers.map((item) => {
-					console.log('hahaha',item.path)
 					return (
 						<Route path={item.path} key={item.key} exact={item.exact}>
 							<item.component data={props.propsData} />
@@ -30,9 +31,11 @@ const Layout: React.FC<IProps> = (props) => {
 			{props.type === 'client' ? (
 				<BrowserRouter>{innerRoute()}</BrowserRouter>
 			) : (
-				<StaticRouter location={props.req.path} context={{}}>
-					{innerRoute()}
-				</StaticRouter>
+				<StyleContext.Provider value={{ insertCss:props.insertCss }}>
+					<StaticRouter location={props.req.path} context={props.ctx}>
+						{innerRoute()}
+					</StaticRouter>
+				</StyleContext.Provider>
 			)}
 		</div>
 	);

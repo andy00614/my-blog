@@ -9,7 +9,11 @@
     "build": "webpack --config ./build/webpack.client.js",
     "pub": "npm run build && npm publish",
     "dev": "webpack-dev-server --config build/webpack.dev.js",
-    "ssr": "webpack --config ./build/webpack.server.js"
+    "ssr": "webpack --config ./build/webpack.server.js",
+    "skr": "npm-run-all --parallel skr:**",
+    "skr:start": "nodemon ./dist/server.js",
+    "skr:build:client": "webpack --config ./build/webpack.client.js --watch",
+    "skr:build:server": "webpack --config ./build/webpack.server.js --watch"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
