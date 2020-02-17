@@ -23,7 +23,6 @@ app.get('*', (req, res) => {
         <title>ssr</title>
         <style>${[...css].join('')}</style>
         <body>
-          <h2>hello ssr</h2>
           <div id="root">${content}</div>
           <script>window.ctx=${JSON.stringify(data)}</script>
           <script src="/bundle.js"></script>
