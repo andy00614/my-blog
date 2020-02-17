@@ -13,17 +13,23 @@ module.exports = WebpackMerge(webpackConfig, {
 	module: {
 		rules: [
 			{
-				test: /\.css?$/i,
+				test: /\.scss$/,
 				use: [
-					'style-loader',
+					{
+						loader: 'style-loader'
+					},
 					{
 						loader: 'css-loader',
 						options: {
-							importLoaders: 1,
 							modules: {
-                localIdentName: '[name]_[local]_[hash:base64:5]'
-              },
+								localIdentName: '[name]_[local]_[hash:base64:5]'
+							},
+							importLoaders: 1,
+							sourceMap: true
 						}
+					},
+					{
+						loader: 'sass-loader'
 					}
 				]
 			}
