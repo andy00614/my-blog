@@ -12,21 +12,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.s[ac]ss$/,
-				use: [
-					{ loader: 'style-loader', options: { esModule: true, injectType: 'styleTag' } },
-					{
-						loader: 'css-loader',
-						options: {
-							modules: {
-								localIdentName: '[name]_[local]_[hash:base64:5]'
-							}
-						}
-					},
-					{ loader: 'sass-loader' }
-				]
-			},
-			{
 				test: /\.(png|svg|jpg|gif)$/,
 				use: ['file-loader']
 			},

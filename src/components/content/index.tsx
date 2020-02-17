@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import s from './index.css'
 
 function Content(props) {
 	const [list,setList] = useState(props.data || [])
@@ -12,7 +13,7 @@ function Content(props) {
 	},[])
 	
 	return (
-		<div>
+		<div className={s.container}>
 			Content
 			{list.map((item) => (
 				<div key={item.title}>{item.title}</div>

@@ -18,6 +18,21 @@ module.exports = WebpackMerge(webpackConfig, {
 		libraryExport: 'default',
 		// publicPath: '/'
 	},
+	module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', {
+					loader: 'css-loader',
+					options: {
+						importLoaders: 1,
+						modules: true,
+						localIdentName: '[name]_[local]_[hash:base64:5]'
+					}
+				}],
+      },
+    ]
+  },
 	devServer: {
 		port: 8090,
 		hot: true,
