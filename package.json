@@ -9,7 +9,11 @@
     "build": "webpack --config ./build/webpack.client.js",
     "pub": "npm run build && npm publish",
     "dev": "webpack-dev-server --config build/webpack.dev.js",
-    "ssr": "webpack --config ./build/webpack.server.js"
+    "ssr": "webpack --config ./build/webpack.server.js",
+    "skr": "npm-run-all --parallel skr:**",
+    "skr:start": "nodemon ./dist/server.js",
+    "skr:build:client": "webpack --config ./build/webpack.client.js --watch",
+    "skr:build:server": "webpack --config ./build/webpack.server.js --watch"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -52,6 +56,7 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
+    "isomorphic-style-loader": "^5.1.0",
     "lint-staged": "^10.0.0-beta.14",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
@@ -80,6 +85,7 @@
     "express-http-proxy": "^1.6.0",
     "git-cz": "^3.3.0",
     "lodash": "^4.17.15",
+    "postcss-loader": "^3.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-config": "^5.1.1",

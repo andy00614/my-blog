@@ -14,11 +14,15 @@ app.get('*', (req, res) => {
   const matchedRouter = matchRoutes(routers, req.path);
   const loadData = matchedRouter[0].route.loadData;
 	loadData().then((response) => {
-		const data = response.data.data;
-    const content = renderToString(<Layout propsData={data} req={req} type="server" />);
+    const css = new Set() // CSS for all rendered React components
+    const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
+    const data = response.data.data;
+    const content = renderToString(<Layout propsData={data} req={req} type="server" insertCss={insertCss} />);
+
 		res.send(`<html>
     <head>
         <title>ssr</title>
+        <style>${[...css].join('')}</style>
         <body>
           <h2>hello ssr</h2>
           <div id="root">${content}</div>
