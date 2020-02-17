@@ -18,7 +18,6 @@ app.get('*', (req, res) => {
     const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
     const data = response.data.data;
     const content = renderToString(<Layout propsData={data} req={req} type="server" insertCss={insertCss} />);
-
 		res.send(`<html>
     <head>
         <title>ssr</title>
@@ -26,6 +25,7 @@ app.get('*', (req, res) => {
         <body>
           <h2>hello ssr</h2>
           <div id="root">${content}</div>
+          <script>window.ctx=${JSON.stringify(data)}</script>
           <script src="/bundle.js"></script>
         </body>
       </head>

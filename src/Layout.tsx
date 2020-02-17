@@ -10,7 +10,6 @@ interface IProps {
 }
 
 const Layout: React.FC<IProps> = (props) => {
-	console.log(props.insertCss)
 	const innerRoute = () => (
 		<>
 			<Link to="/content">content</Link>
@@ -32,7 +31,7 @@ const Layout: React.FC<IProps> = (props) => {
 				<BrowserRouter>{innerRoute()}</BrowserRouter>
 			) : (
 				<StyleContext.Provider value={{ insertCss:props.insertCss }}>
-					<StaticRouter location={props.req.path} context={props.ctx}>
+					<StaticRouter location={props.req.path} context={{}}>
 						{innerRoute()}
 					</StaticRouter>
 				</StyleContext.Provider>

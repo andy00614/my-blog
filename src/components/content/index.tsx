@@ -4,10 +4,17 @@ import s from './index.css'
 import useStyles from 'isomorphic-style-loader/useStyles'
 
 function Content(props) {
-	const [list,setList] = useState(props.data || [])
+	let initalData = []
+	if(typeof window !== 'undefined') {
+		initalData = (window as any).ctx
+	} else {
+		initalData = props.data
+	}
 	useStyles(s)
+	const [list,setList] = useState(initalData)
 	useEffect(() => {
-		if(!props.data || props.data.length === 0) {
+		console.log(initalData)
+		if(initalData.length === 0) {
 			axios.get('http://39.105.148.23:8000/').then(res => {
 				setList(res.data.data)
 			})
