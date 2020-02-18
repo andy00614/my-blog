@@ -1,9 +1,11 @@
 .container {
 	display: flex;
 	justify-content: center;
+	h1 {
+		margin: 0;
+	}
 	.header {
 		border-bottom: 1px solid #ccc;
-		margin-bottom: 40px;
 		padding-bottom: 6px;
 	}
 	.inner {

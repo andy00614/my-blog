@@ -1,36 +1,51 @@
 import React from 'react';
-import s from './index.scss'
-import useStyles from 'isomorphic-style-loader/useStyles'
+import s from './index.scss';
+import useStyles from 'isomorphic-style-loader/useStyles';
+import { useHistory } from 'react-router-dom'
 
 const list = [
 	{
 		time: '2020/01/01',
-		title: 'Fast and maintainable patterns for fetching from a database'
+		title: 'Fast and maintainable patterns for fetching from a database',
+		articleId: 'dlkglns3244rnsef'
 	},
 	{
 		time: '2020/01/02',
-		title: 'React Conf: “Building a Custom React Renderer”'
+		title: 'React Conf: “Building a Custom React Renderer”',
+		articleId: 'klxmcnvneuwiscf'
 	},
 	{
 		time: '2020/01/03',
-		title: ' Yak shaving and fixing'
+		title: ' Yak shaving and fixing',
+		articleId: 'kmmcnjwo34884354r'
 	},
 	{
 		time: '2020/01/04',
-		title: 'Type errors with inference need stacks'
+		title: 'Type errors with inference need stacks',
+		articleId: 'loqowinn8823'
 	}
 ];
 
 export default (props) => {
-	useStyles(s)
-	return <div className={s.container}>
-		{
-			list.map(item => (
+	useStyles(s);
+	const history = useHistory()
+
+	const turnArticlePage = (id:string) => {
+		history.push(`/article/${id}`)
+	}
+
+	return (
+		<div className={s.container}>
+			<div className={s.desc}>
+				Everybody wants to be a hero, but nobody wants to start from zero
+			</div>
+
+			{list.map((item) => (
 				<div key={item.title} className={s.article}>
 					<div className={s.time}>{item.time}</div>
-					<div className={s.title}>{item.title}</div>
+					<div className={s.title} onClick={() => turnArticlePage(item.articleId)}>{item.title}</div>
 				</div>
-			))
-		}
-	</div>
+			))}
+		</div>
+	);
 };
