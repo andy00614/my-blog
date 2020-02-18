@@ -1,11 +1,11 @@
-import App from '@/components/demo';
-import Content from '@/components/content';
+import List from '@/components/List';
+import Content from '@/components/Article';
 import axios from 'axios';
 
 export const routers = [
 	{
 		path: '/',
-		component: App,
+		component: List,
 		key: 'home',
 		exact: true,
 		loadData() {
@@ -13,7 +13,7 @@ export const routers = [
 		}
 	},
 	{
-		path: '/content',
+		path: '/content/:articleId',
 		component: Content,
 		key: 'content',
 		loadData() {

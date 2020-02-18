@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import s from './index.scss'
 import useStyles from 'isomorphic-style-loader/useStyles'
+import { useParams } from 'react-router-dom'
 
 function Content(props) {
+	const { articleId } = useParams()
 	let initalData = []
 	if(typeof window !== 'undefined') {
 		initalData = (window as any).ctx
@@ -22,7 +24,8 @@ function Content(props) {
 	
 	return (
 		<div className={s.container}>
-			Content
+			111
+			{articleId}
 			{list.map((item) => (
 				<div key={item.title}>{item.title}</div>
 			))}
