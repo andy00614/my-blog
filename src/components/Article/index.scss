@@ -1,0 +1,21 @@
+.container {
+  pre {
+    border: 1px solid #ccc;
+    border-style: solid none;
+    line-height: 1.2;
+    padding: 8px 0;
+    color: #4876d6;
+    code {
+      background: #fff;
+      padding: 0;
+    }
+  }
+  code {
+    background: rgba(179, 170, 199, 0.2);
+    padding: 5px;
+    border-radius: 4px;
+  }
+  img {
+    max-width: 520px;
+  }
+}
