@@ -20,6 +20,7 @@ app.get('*', (req, res) => {
     const content = renderToString(<Layout propsData={data} req={req} type="server" insertCss={insertCss} />);
 		res.send(`<html>
     <head>
+        <meta name="referrer" content="no-referrer" />
         <title>ssr</title>
         <style>${[...css].join('')}</style>
         <body>
