@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './index.scss';
 import useStyles from 'isomorphic-style-loader/useStyles';
 import { useHistory } from 'react-router-dom'
 import { getArticles } from '@/services'
+import { inititalData } from '@/utils/initial'
+
 
 const list = [
 	{
@@ -30,10 +32,11 @@ const list = [
 export default (props) => {
 	useStyles(s);
 	const history = useHistory()
-
+	const initialData = inititalData([],props.data)
 	const turnArticlePage = (id:string) => {
 		history.push(`/article/${id}`)
 	}
+	const [list,setList] = useState(initialData)
 
 	return (
 		<div className={s.container}>
