@@ -194,10 +194,7 @@ function Content(props) {
 
 	return (
 		<div className={s.container}>
-			<ReactMarkdown source={STR} escapeHtml={true} />
-			{/* {list.map((item) => (
-				<div key={item.title}>{item.title}</div>
-			))} */}
+			<ReactMarkdown source={STR} escapeHtml={false}/>
 		</div>
 	);
 }
