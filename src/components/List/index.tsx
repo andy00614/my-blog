@@ -6,29 +6,6 @@ import { getArticles } from '@/services'
 import { inititalData } from '@/utils/initial'
 
 
-const list = [
-	{
-		time: '2020/01/01',
-		title: 'Fast and maintainable patterns for fetching from a database',
-		articleId: 'dlkglns3244rnsef'
-	},
-	{
-		time: '2020/01/02',
-		title: 'React Conf: “Building a Custom React Renderer”',
-		articleId: 'klxmcnvneuwiscf'
-	},
-	{
-		time: '2020/01/03',
-		title: ' Yak shaving and fixing',
-		articleId: 'kmmcnjwo34884354r'
-	},
-	{
-		time: '2020/01/04',
-		title: 'Type errors with inference need stacks',
-		articleId: 'loqowinn8823'
-	}
-];
-
 export default (props) => {
 	useStyles(s);
 	const history = useHistory()
@@ -37,6 +14,7 @@ export default (props) => {
 		history.push(`/article/${id}`)
 	}
 	const [list,setList] = useState(initialData)
+	console.log(list)
 
 	return (
 		<div className={s.container}>
