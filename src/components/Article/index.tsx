@@ -4,6 +4,7 @@ import s from './index.scss';
 import useStyles from 'isomorphic-style-loader/useStyles';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { inititalData } from '@/utils/initial'
 
 const STR = `# 前言
 之前开发都是在用脚手架,几乎0配置,只需要会ts的语法就完全可以开发ts项目了，这次自己从零折腾了一个ts项目，发现配置方面还是有挺多坑的，所以不如从头看一下具体的方法和文档，于是总结出了这篇文章。相信我，自己系统的了解一遍和使用脚手架直接配置相比，理解上肯定会有不一样的认知。<br>
@@ -176,12 +177,7 @@ paths必须和上面的baseUrl联用，举个例子：
 如果用了webpack使用了alias,那么导致baseUrl不会生效，从而paths也不会生效，所以paths岂不是没用了吗？其实从实际作用来说确实是没用了，**不过可以将paths的配置和alias配置成一样的，在vscode中会有路径的自动提示，也是很方便很爽的**`;
 function Content(props) {
 	const { articleId } = useParams();
-	let initalData = [];
-	if (typeof window !== 'undefined') {
-		initalData = (window as any).ctx;
-	} else {
-		initalData = props.data;
-	}
+	let initalData = inititalData([],props.data)
 	useStyles(s);
 	const [list, setList] = useState(initalData);
 	useEffect(() => {

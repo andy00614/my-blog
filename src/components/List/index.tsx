@@ -2,6 +2,7 @@ import React from 'react';
 import s from './index.scss';
 import useStyles from 'isomorphic-style-loader/useStyles';
 import { useHistory } from 'react-router-dom'
+import { getArticles } from '@/services'
 
 const list = [
 	{
@@ -49,3 +50,8 @@ export default (props) => {
 		</div>
 	);
 };
+
+export const loadList = async () => {
+	const data = getArticles();
+	return data
+}

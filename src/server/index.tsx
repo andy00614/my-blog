@@ -16,7 +16,7 @@ app.get('*', (req, res) => {
 	loadData().then((response) => {
     const css = new Set() // CSS for all rendered React components
     const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
-    const data = response.data.data;
+    const data = response;
     const content = renderToString(<Layout propsData={data} req={req} type="server" insertCss={insertCss} />);
 		res.send(`<html>
     <head>
