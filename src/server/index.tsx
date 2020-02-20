@@ -7,26 +7,29 @@ import { matchRoutes } from 'react-router-config';
 
 const app = express();
 
-app.use(express.static('public'))
-
+app.use(express.static('public'));
 
 app.get('*', (req, res) => {
-  const matchedRouter = matchRoutes(routers, req.path);
-  const match = matchedRouter[0].match
-  const loadData = matchedRouter[0].route.loadData.bind(this,match);
+	const matchedRouter = matchRoutes(routers, req.path);
+	const match = matchedRouter[0].match;
+	const loadData = matchedRouter[0].route.loadData.bind(this, match);
 	loadData().then((response) => {
-    const css = new Set() // CSS for all rendered React components
-    const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
-    const data = response;
-    const content = renderToString(<Layout propsData={data} req={req} type="server" insertCss={insertCss} />);
+		const css = new Set(); // CSS for all rendered React components
+		const insertCss = (...styles) => styles.forEach((style) => css.add(style._getCss()));
+		const data = response;
+		const content = renderToString(
+			<Layout propsData={data} req={req} type="server" insertCss={insertCss} />
+		);
 		res.send(`<html>
     <head>
         <meta name="referrer" content="no-referrer" />
         <title>ssr</title>
+        <link href='https://fonts.googleapis.com/css?family=Shadows Into Light' rel='stylesheet'>
         <style>${[...css].join('')}</style>
+
         <body>
           <div id="root">${content}</div>
-          <script>window.ctx=${JSON.stringify({url:match.url,data})}</script>
+          <script>window.ctx=${JSON.stringify({ url: match.url, data })}</script>
           <script src="/bundle.js"></script>
         </body>
       </head>

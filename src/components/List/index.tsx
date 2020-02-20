@@ -21,7 +21,7 @@ const List: React.FC<Iprops> = (props) => {
 	return (
 		<div className={s.container}>
 			<div className={s.desc}>
-				Everybody wants to be a hero, but nobody wants to start from zero
+				Everybody wants to be a hero, but nobody wants to start from zero...
 			</div>
 
 			{list.map((item) => (
