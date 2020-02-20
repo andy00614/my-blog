@@ -86,6 +86,7 @@
     "express-http-proxy": "^1.6.0",
     "git-cz": "^3.3.0",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "postcss-loader": "^3.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

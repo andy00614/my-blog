@@ -4,9 +4,13 @@ import useStyles from 'isomorphic-style-loader/useStyles';
 import { useHistory } from 'react-router-dom'
 import { getArticles } from '@/services'
 import { inititalData } from '@/utils/initial'
+import { ListType } from './type'
+import moment from 'moment'
 
-
-export default (props) => {
+interface Iprops {
+	data: ListType[]
+}
+const List:React.FC<Iprops> = (props) => {
 	useStyles(s);
 	const history = useHistory()
 	const initialData = inititalData([],props.data)
@@ -14,8 +18,6 @@ export default (props) => {
 		history.push(`/article/${id}`)
 	}
 	const [list,setList] = useState(initialData)
-	console.log(list)
-
 	return (
 		<div className={s.container}>
 			<div className={s.desc}>
@@ -24,14 +26,14 @@ export default (props) => {
 
 			{list.map((item) => (
 				<div key={item.title} className={s.article}>
-					<div className={s.time}>{item.time}</div>
+					<div className={s.time}>{moment(item.time).format('YYYY/MM/DD')}</div>
 					<div className={s.title} onClick={() => turnArticlePage(item.articleId)}>{item.title}</div>
 				</div>
 			))}
 		</div>
 	);
 };
-
+export default List
 export const loadList = async () => {
 	const data = getArticles();
 	return data
