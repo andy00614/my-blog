@@ -12,7 +12,8 @@ app.use(express.static('public'))
 
 app.get('*', (req, res) => {
   const matchedRouter = matchRoutes(routers, req.path);
-  const loadData = matchedRouter[0].route.loadData;
+  const match = matchedRouter[0].match
+  const loadData = matchedRouter[0].route.loadData.bind(this,match);
 	loadData().then((response) => {
     const css = new Set() // CSS for all rendered React components
     const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))

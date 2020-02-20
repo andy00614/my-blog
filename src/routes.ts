@@ -15,10 +15,6 @@ export const routers = [
 		path: '/article/:articleId',
 		component: Article,
 		key: 'Article',
-		loadData() {
-			return axios.get('http://39.105.148.23:8000/').then(res => {
-				return res.data.data
-			})
-		}
+		loadData: Article.loadArticle
 	}
 ];
