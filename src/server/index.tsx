@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
         <style>${[...css].join('')}</style>
         <body>
           <div id="root">${content}</div>
-          <script>window.ctx=${JSON.stringify(data)}</script>
+          <script>window.ctx=${JSON.stringify({url:match.url,data})}</script>
           <script src="/bundle.js"></script>
         </body>
       </head>

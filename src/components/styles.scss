@@ -14,7 +14,8 @@
 		box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.125);
 		margin: 0 auto;
 		padding: 40px;
-		max-width: 640px;
+		width: 640px;
+		min-height: 500px;
 		.desc {
 			font-size: 24px;
 			line-height: 1.3;

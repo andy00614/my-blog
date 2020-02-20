@@ -2,6 +2,8 @@ import React from 'react';
 import s from './styles.scss';
 import useStyles from 'isomorphic-style-loader/useStyles'
 import { useHistory } from "react-router-dom";
+import { useInitialState } from '@/utils/hooks';
+
 
 const Hello: React.FC<{}> = (props) => {
 	useStyles(s)
