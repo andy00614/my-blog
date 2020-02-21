@@ -1,0 +1,24 @@
+@hostname = localhost:3000
+## 获取用户列表
+GET http://localhost:3000/getList
+
+### 根据Id获取文章内容
+GET http://{{hostname}}/searchContent?id=2020-2-20-ts-config
+
+### 创建文章
+POST http://{{hostname}}/createArticle
+content-type: application/json
+
+{
+  "title": "test14",
+	"content": "xxxxxxxxxxxx"
+}
+
+### 删除文章
+POST http://{{hostname}}/removeArticle HTTP/1.1
+content-type: application/json
+
+{
+  "articleId": "2020-2-21-http-request-demo",
+  "password": "saveblog1"
+}
