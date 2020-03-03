@@ -1,7 +1,7 @@
 FROM node:alpine
-
 WORKDIR /code
-ADD . /code
-RUN npm install && npm run build && npm install -g http-server
-EXPOSE 7000
-CMD http-server ./public -p 7000
+COPY package.json .
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && cnpm install && cnpm install nodemon -g
+EXPOSE 7012
+CMD npm run skr
+COPY . .

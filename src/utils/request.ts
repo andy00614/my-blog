@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: 'http://localhost:3000'
+	baseURL: 'http://39.105.148.23:3000/'
 });
 
 interface Response {
