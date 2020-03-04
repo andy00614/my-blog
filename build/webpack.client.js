@@ -19,10 +19,10 @@ module.exports = WebpackMerge(webpackConfig, {
 	},
 	plugins: [
 		new BundleAnalyzerPlugin(),
-		new MiniCssExtractPlugin({
-			filename: 'style.css',
-			chunkFilename: '[name].css'
-		})
+		// new MiniCssExtractPlugin({
+		// 	filename: 'style.css',
+		// 	chunkFilename: '[name].css'
+		// })
 	],
 	module: {
 		rules: [
@@ -32,7 +32,7 @@ module.exports = WebpackMerge(webpackConfig, {
 					{
 						loader: 'style-loader'
 					},
-					MiniCssExtractPlugin.loader,
+					// MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
