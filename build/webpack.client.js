@@ -10,15 +10,22 @@ module.exports = WebpackMerge(webpackConfig, {
 	mode: 'production',
 	devtool: 'none',
 	entry: path.resolve(__dirname, '../src/client/index.tsx'),
-	externals: {
-		moment: 'moment'
-	},
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, '../public')
+		path: path.resolve(__dirname, '../public'),
+		libraryTarget: "umd"
+	},
+	externals: {
+		moment: 'moment',
+		lodash: {
+			commonjs: 'lodash',
+			commonjs2: 'lodash',
+			amd: 'lodash',
+			root: '_'
+		}
 	},
 	plugins: [
-		new BundleAnalyzerPlugin(),
+		new BundleAnalyzerPlugin()
 		// new MiniCssExtractPlugin({
 		// 	filename: 'style.css',
 		// 	chunkFilename: '[name].css'

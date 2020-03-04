@@ -31,6 +31,7 @@ app.get('*', (req, res) => {
         <div id="root">${content}</div>
         <script>window.ctx=${JSON.stringify({ url: match.url, data })}</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.core.js"></script>
         <script src="/bundle.js"></script>
         </body>
       </head>

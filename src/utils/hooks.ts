@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getInitialData } from './initial';
-import Lodash from 'lodash';
+import lodash from 'lodash';
 
 export const useInitialState = (initalData: any, loadData: any, fetchFn: Function) => {
 	// eslint-disable-next-line no-constant-condition
@@ -13,7 +13,7 @@ export const useInitialState = (initalData: any, loadData: any, fetchFn: Functio
 		const windowUrl = (window as any).ctx.url;
 		const { pathname } = window.location;
 		const whetherReFetch = (fetchData): boolean => {
-			return windowUrl !== pathname || !Lodash.isEqual(fetchData, (window as any).ctx.data);
+			return windowUrl !== pathname || !lodash.isEqual(fetchData, (window as any).ctx.data);
 		};
 		fetchFn().then((res) => {
 			if (whetherReFetch(res)) {
