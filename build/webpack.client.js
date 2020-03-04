@@ -4,19 +4,24 @@ const WebpackMerge = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = WebpackMerge(webpackConfig, {
 	mode: 'production',
 	devtool: 'none',
 	entry: path.resolve(__dirname, '../src/client/index.tsx'),
+	externals: {
+		moment: 'moment'
+	},
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, '../public')
 	},
 	plugins: [
+		new BundleAnalyzerPlugin(),
 		new MiniCssExtractPlugin({
-			filename: "style.css",
-			chunkFilename: "[name].css"
+			filename: 'style.css',
+			chunkFilename: '[name].css'
 		})
 	],
 	module: {

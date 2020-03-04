@@ -26,11 +26,12 @@ app.get('*', (req, res) => {
         <title>ssr</title>
         <link href='https://fonts.googleapis.com/css?family=Shadows Into Light' rel='stylesheet'>
         <style>${[...css].join('')}</style>
-
+        
         <body>
-          <div id="root">${content}</div>
-          <script>window.ctx=${JSON.stringify({ url: match.url, data })}</script>
-          <script src="/bundle.js"></script>
+        <div id="root">${content}</div>
+        <script>window.ctx=${JSON.stringify({ url: match.url, data })}</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+        <script src="/bundle.js"></script>
         </body>
       </head>
     </html>`);
