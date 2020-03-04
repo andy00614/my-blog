@@ -20,7 +20,7 @@ const Hello: React.FC<{}> = (props) => {
 						Andy00614-Blog
 					</h1>
 				</header>
-				<div>{props.children}</div>
+				<div className={s.content}>{props.children}</div>
 				<footer>
 					<a href="mailto:andy00614@163.com">email</a>
 					<span> • </span>
