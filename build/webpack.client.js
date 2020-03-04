@@ -3,7 +3,7 @@ const webpackConfig = require('./webpack.config');
 const WebpackMerge = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = WebpackMerge(webpackConfig, {
 	mode: 'production',
@@ -13,6 +13,12 @@ module.exports = WebpackMerge(webpackConfig, {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, '../public')
 	},
+	plugins: [
+		new MiniCssExtractPlugin({
+			filename: "style.css",
+			chunkFilename: "[name].css"
+		})
+	],
 	module: {
 		rules: [
 			{
@@ -21,6 +27,7 @@ module.exports = WebpackMerge(webpackConfig, {
 					{
 						loader: 'style-loader'
 					},
+					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
@@ -39,8 +46,6 @@ module.exports = WebpackMerge(webpackConfig, {
 		]
 	},
 	optimization: {
-		minimizer: [
-			new TerserPlugin()
-		]
+		minimizer: [new TerserPlugin()]
 	}
 });
