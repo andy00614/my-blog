@@ -5,8 +5,9 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = WebpackMerge(webpackConfig, {
-	mode: 'development',
+	mode: 'production',
 	target: 'node',
+	devtool: 'none',
 	module: {
 		rules: [
 			{

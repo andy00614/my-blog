@@ -2,9 +2,12 @@
 const webpackConfig = require('./webpack.config');
 const WebpackMerge = require('webpack-merge');
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+
 
 module.exports = WebpackMerge(webpackConfig, {
-	mode: 'development',
+	mode: 'production',
+	devtool: 'none',
 	entry: path.resolve(__dirname, '../src/client/index.tsx'),
 	output: {
 		filename: 'bundle.js',
@@ -33,6 +36,11 @@ module.exports = WebpackMerge(webpackConfig, {
 					}
 				]
 			}
+		]
+	},
+	optimization: {
+		minimizer: [
+			new TerserPlugin()
 		]
 	}
 });
